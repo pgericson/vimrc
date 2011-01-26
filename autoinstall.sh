@@ -1,5 +1,14 @@
 #!/bin/sh
-INSTALL_TO=~/Projects
+if ["$1" == ""]
+then
+  echo ""
+  echo "You need to specify the path to install to"
+  echo "E.g. ~ for your home dir or e.g. ~/Projects"
+  echo ""
+  exit 1
+else
+  INSTALL_TO=$1
+fi
 
 warn() {
     echo "$1" >&2
