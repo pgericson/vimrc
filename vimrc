@@ -32,6 +32,12 @@ filetype plugin indent on       " enable detection, plugins and indenting in one
 " Change the mapleader from \ to ,
 let mapleader=","
 
+" Spped optimizations
+set lz
+set ttyfast
+
+set history=50
+
 " Editing behaviour {{{
 set showmode                    " always show what mode we're currently editing in
 set nowrap                      " don't wrap lines
@@ -109,7 +115,8 @@ set encoding=utf-8
 set lazyredraw                  " don't update the display while executing macros
 set laststatus=2                " tell VIM to always put a status line in, even
                                 "    if there is only one window
-set cmdheight=2                 " use a status bar that is 2 rows high
+set cmdheight=1                 " use a status bar that is 2 rows high
+set ruler
 " }}}
 
 " Vim behaviour {{{
@@ -126,6 +133,7 @@ if v:version >= 730
     set undofile                " keep a persistent backup file
     set undodir=~/.vim/.undo,~/tmp,/tmp
 endif
+set nowritebackup
 set nobackup                    " do not keep backup files, it's 70's style cluttering
 set noswapfile                  " do not write annoying intermediate swap files,
                                 "    who did ever restore from swap files anyway?
