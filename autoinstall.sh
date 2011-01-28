@@ -1,5 +1,8 @@
 #!/bin/sh
-if ["$1" == ""]
+echo "You need to specify the path to install to"
+echo "E.g. ~ for your home dir or e.g. ~/Projects"
+read -p "Enter path: " THEPATH
+if ["$THEPATH" == ""]
 then
   echo ""
   echo "You need to specify the path to install to"
@@ -7,15 +10,15 @@ then
   echo ""
   exit 1
 else
-  INSTALL_TO=$1
+  INSTALL_TO=$THEPATH
 fi
 
 warn() {
-    echo "$1" >&2
+    echo "$THEPATH" >&2
 }
 
 die() {
-    warn "$1"
+    warn "$THEPATH"
     exit 1
 }
 
